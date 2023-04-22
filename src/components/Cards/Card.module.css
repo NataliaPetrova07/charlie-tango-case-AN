@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+  padding: 1rem;
+  background-color: var(--dusty-aqua-light);
+  border: 1px solid var(--dusty-aqua);
+  width: 100%;
+}
+
+.closeIcon {
+  background-image: url(/path/to/image.svg);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+.closeIcon:hover {
+  fill: white;
+}
+
+.card ul {
+  padding-left: 1rem;
+}
+
+.card li {
+  list-style-type: none;
+  line-height: 1.5rem;
+}
