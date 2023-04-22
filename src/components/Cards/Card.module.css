@@ -7,16 +7,17 @@
 }
 
 .closeIcon {
-  background-image: url(/path/to/image.svg);
   position: absolute;
   top: 1rem;
   right: 1rem;
-  height: 24px;
-  width: 24px;
   cursor: pointer;
+  background: none;
+  display: inline-block;
+  background-size: cover;
 }
-.closeIcon:hover {
-  fill: white;
+
+.closeIcon svg {
+  fill: var(--hover);
 }
 
 .card ul {
