@@ -3,3 +3,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
+.headline {
+  font-size: 3rem;
+  font-family: var(--font-serif);
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}

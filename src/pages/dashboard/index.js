@@ -9,7 +9,8 @@ export default function Dashboard() {
         <title>Dashboard | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1>Dashboard: Latest contacts</h1>
+        <h1 className={styles.headline}>Dashboard</h1>
+        <h2> Latest contacts</h2>
         <section className={styles.container}>
           <DashboardCard />
           <DashboardCard />
