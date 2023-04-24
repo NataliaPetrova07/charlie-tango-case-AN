@@ -42,6 +42,7 @@ export default function Home() {
               building forms in Next.js
             </a>
           </p>
+          {/* action="/buyers" --> direct to the desired page. Careful with method! */}
           <form action="/buyers" method="GET" className={styles.form}>
             <label>
               <span className={styles.label}>Zip Code</span>
