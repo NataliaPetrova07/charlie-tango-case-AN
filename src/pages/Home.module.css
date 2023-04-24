@@ -11,7 +11,7 @@
   padding: 1rem;
   background-color: var(--dusty-aqua-light);
   border: 1px solid var(--dusty-aqua);
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 .content :first-child {
   margin-top: 0;
@@ -31,7 +31,17 @@
   display: block;
 }
 
+.span {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  display: block;
+}
+
 .form input {
+  padding: 0.5rem;
+}
+
+.option {
   padding: 0.5rem;
 }
 

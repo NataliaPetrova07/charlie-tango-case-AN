@@ -1,7 +1,18 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
+import { Button } from "@/components/Button";
+import { Field } from "@/components/Field";
+import { estateTypes } from "@/data/estateTypes";
+
+
+
 
 export default function Home() {
+
+  //POPULATE DROP DOWN
+  /* https://antdp425.medium.com/populate-dropdown-options-in-react-ad2a54b64f8e */
+  let estateType = estateTypes
+
   return (
     <>
       <Head>
@@ -39,7 +50,26 @@ export default function Home() {
             <button className={styles.button}>Submit</button>
           </form>
         </div>
-      </div>
+        <div className={styles.content}>
+          <h2>Find a buyer for you property</h2>
+          <form action="/buyers" method="GET" className={styles.form}>
+            <Field label="Price" id="price" name="price" required disabled></Field>
+            <Field label="Size" hint="hint-size" texthint="In square meters" id="size" name="size" type="text" required></Field>
+            <Field label="Zip Code" hint="hint-code" texthint="Must contain four digits" id="zip" name="zip" type="text" required></Field>
+            <label for="type" className={styles.label}>Property type</label>
+            <select className={styles.option} name="type" id="type" required>
+              <option value="Select a estate"> -- Estate Type -- </option>
+              {estateType.map((estate) => (
+                <option value={estate.id} key="esate" >{estate.name}</option>
+              ))
+              }
+            </select>
+            <Button text={"Find buyers"}></Button>
+          </form>
+        </div>
+      </div >
     </>
   );
 }
+"zip"
+
