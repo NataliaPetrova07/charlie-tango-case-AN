@@ -12,7 +12,7 @@ export function Header() {
           src={logo.src}
           width={64}
           height={64}
-          alt="EDC"
+          alt="close button"
           priority
         />
       </Link>
