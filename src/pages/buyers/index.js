@@ -2,9 +2,12 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import BuyerCard from "@/components/Cards/BuyerCard";
+import { buyers } from "@/data/buyerProfiles";
 
-export default function Buyers() {
+export default function Buyers(props) {
   const { query } = useRouter();
+  let buyer = buyers;
+  console.log(buyer);
   return (
     <>
       <Head>
@@ -12,7 +15,7 @@ export default function Buyers() {
       </Head>
       <div className="wrapper">
         <h1 className={styles.headline}>Potential buyers</h1>
-        {/* <p>
+        <p>
           On this page you get the <code>`query`</code> params like{" "}
           <code>`zipCode`</code>, and can use them to fetch a list of buyers
           from the API.
@@ -45,8 +48,11 @@ export default function Buyers() {
           <pre>
             <code>{JSON.stringify(query, null, 2)}</code>
           </pre>
-        </div> */}
+        </div>
         <section className={styles.container}>
+          {/* {props.buyers.map((buyer) => (
+            <BuyerCard {...buyer} />
+          ))} */}
           <BuyerCard />
           <BuyerCard />
           <BuyerCard />
