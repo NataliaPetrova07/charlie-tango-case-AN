@@ -2,12 +2,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import BuyerCard from "@/components/Cards/BuyerCard";
-import { buyers } from "@/data/buyerProfiles";
 
 export default function Buyers(props) {
   const { query } = useRouter();
-  let buyer = buyers;
-  console.log(buyer);
+
   return (
     <>
       <Head>
@@ -50,17 +48,30 @@ export default function Buyers(props) {
           </pre>
         </div>
         <section className={styles.container}>
-          {/* {props.buyers.map((buyer) => (
+          {props.buyers.map((buyer) => (
             <BuyerCard {...buyer} />
-          ))} */}
-          <BuyerCard />
-          <BuyerCard />
-          <BuyerCard />
-          <BuyerCard />
-          <BuyerCard />
-          <BuyerCard />
+          ))}
         </section>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  // const buyer = context.params.buyer;
+  const api = "http://localhost:3000/api/find-buyers";
+  const res = await fetch(api);
+  // If no data - no page (404)
+  if (res.status != 200) {
+    return {
+      notFound: true,
+    };
+  }
+  const data = await res.json();
+
+  return {
+    props: {
+      buyers: data,
+    },
+  };
 }
