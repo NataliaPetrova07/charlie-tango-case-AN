@@ -1,7 +1,7 @@
 
-import styles from "../pages/Home.module.css"
+import styles from "../../pages/Home.module.css"
 
-export function Field({ label, hint = "", texthint = "", name, type = "text", id, ...rest }) {
+export default function Field({ label, hint = "", texthint = "", name, type = "text", id, ...rest }) {
   return (
     <div>
       <label className={styles.label} >{label}
@@ -9,9 +9,9 @@ export function Field({ label, hint = "", texthint = "", name, type = "text", id
         <input
           id={id}
           name={name}
-          type={type}
           aria-describedby={hint}
           {...rest}
+          type={type}
         />
       </label>
     </div >
