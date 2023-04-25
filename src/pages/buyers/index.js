@@ -49,7 +49,7 @@ export default function Buyers(props) {
         </div>
         <section className={styles.container}>
           {props.buyers.map((buyer) => (
-            <BuyerCard {...buyer} />
+            <BuyerCard key={buyer.id} {...buyer} />
           ))}
         </section>
       </div>
