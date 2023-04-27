@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
-import { Button } from "@/components/Button";
+/* import { Button } from "@/components/Button"; */
 import Field from "@/components/Forms/Field";
 import { estateTypes } from "@/data/estateTypes";
+import Form from "@/components/Forms/Form";
 
 
 
@@ -55,7 +56,7 @@ export default function Home() {
             <button className={styles.button}>Submit</button>
           </form>
         </div>
-        {/*  <div className={styles.content}>
+        <div className={styles.content}>
           <h2>Find a buyer for you property</h2>
           <form action="/buyers" method="GET" className={styles.form}>
             <Field
@@ -65,10 +66,7 @@ export default function Home() {
               required />
             <Field
               label="Size"
-              hint="hint-size"
-              texthint="In square meters"
               id="size" name="size"
-
               required />
             <Field
               label="Zip Code"
@@ -76,59 +74,22 @@ export default function Home() {
               texthint="Must contain four digits"
               id="zip"
               name="zip"
-
               required />
             <label for="type" className={styles.label}>Property type</label>
             <select className={styles.option} name="type" id="type" required>
               <option value="Select a estate"> -- Estate Type -- </option>
               {estateType.map((estate) => (
-                <option value={estate.id} key="esate" >{estate.name}</option>
+                <option value={estate.id} key={estate.id} >{estate.name}</option>
               ))
               }
             </select>
-            <Button text={"Find buyers"}></Button>
+            {/* <Button text={"Find buyers"}></Button> */}
           </form>
         </div>
         <div className={styles.content}>
-          <div>
-            <h2>This will be the choosen buyers displayed</h2>
-            <form>
-              <Field
-                label="First Name"
-                hint=""
-                texthint="In square meters"
-                id="size" name="size"
-                required />
-              <Field
-                label="Last Name"
-                hint="hint-size"
-                texthint="In square meters"
-                id="size" name="size"
-                required />
-              <Field
-                label="Email"
-                hint="hint-size"
-                texthint="In square meters"
-                id="size" name="size"
-                required />
-              <Field
-                label="Phone"
-                hint="hint-size"
-                texthint="In square meters"
-                id="size" name="size"
-                required />
-              <Field
-                label="Checkbox"
-                hint="hint-size"
-                texthint="In square meters"
-                id="size" name="size"
-                type="checkbox"
-                required />
-
-            </form>
-          </div>
-
-        </div> */}
+          <h2>Find a buyer for you property - Material UI</h2>
+          <Form />
+        </div>
       </div >
     </>
   );
