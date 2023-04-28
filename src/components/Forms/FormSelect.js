@@ -14,7 +14,7 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function Form() {
+export default function FormSelect() {
 
     let estateType = estateTypes
 
@@ -52,7 +52,7 @@ export default function Form() {
         }
 
         //if all the fields, on submit send to buyers page
-        if (price && size && zip) {
+        if (price && size && zip && type) {
             router.push('/buyers');
         }
     }
@@ -70,7 +70,9 @@ export default function Form() {
                 fullWidth
                 margin="normal"
                 error={priceError}
+                //helper text to show when error fix this
                 helperText="Incorrect entry."
+                required
             />
             <TextField
                 onChange={(e) => setSize(e.target.value)}
@@ -83,6 +85,7 @@ export default function Form() {
                 //The icon for square meters is not showing, why?
                 endAdornment={<InputAdornment position="end">kg</InputAdornment>}
                 error={sizeError}
+                required
             />
             <TextField
                 onChange={(e) => setZip(e.target.value)}
@@ -93,10 +96,13 @@ export default function Form() {
                 fullWidth
                 margin="normal"
                 error={zipError}
+                required
             />
 
-            <FormControl fullWidth
-                margin="normal">
+            <FormControl
+                fullWidth
+                margin="normal"
+                required>
                 <InputLabel id="type">Property Type</InputLabel>
                 <Select
                     labelId="type"
@@ -113,7 +119,6 @@ export default function Form() {
             </FormControl>
             <Button
                 variant="contained"
-                /* onClick={() => console.log("clicked")} */
                 type="submit"
             >
                 Submit
@@ -121,16 +126,3 @@ export default function Form() {
         </form>
     );
 }
-
-
-//POPULATE DROP DOWN
-/* https://antdp425.medium.com/populate-dropdown-options-in-react-ad2a54b64f8e */
-
-
-{/* <label for="type" className={styles.label}>Property type</label>
-<select className={styles.option} name="type" id="type" >
-  <option value="Select a estate"> -- Estate Type -- </option>
-  {estateType.map((estate) => (
-    <option value={estate.id} key={estate.id} >{estate.name}</option>
-  ))
-  } */}
