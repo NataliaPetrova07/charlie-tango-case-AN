@@ -2,20 +2,30 @@ import styles from "./Card.module.css";
 import icon from "@/assets/icon-input-close.svg";
 import Image from "next/image";
 
-export default function BuyerCard() {
+export default function BuyerCard(props) {
   return (
     <article className={styles.card}>
       <ul>
-        <li>Id</li>
-        <li>Estate</li>
-        <li>Date</li>
-        <li>Adults</li>
-        <li>Children</li>
-        <li>Description</li>
+        <li>
+          <strong>Buyer ID:</strong> {props.id}
+        </li>
+        <li>
+          <strong>Max price:</strong> {props.maxPrice} DKK
+        </li>
+        <li>
+          <strong>Min size:</strong> {props.minSize} m2
+        </li>
+        <li>
+          <strong>Nr of adults:</strong> {props.adults}
+        </li>
+        <li>
+          <strong>Nr of children:</strong> {props.children}
+        </li>
+        <li>
+          <strong>Description:</strong>
+          <br /> {props.description}
+        </li>
       </ul>
-      <button className={styles.closeIcon}>
-        <Image src={icon.src} width={30} height={30} alt="close" priority />
-      </button>
     </article>
   );
 }
