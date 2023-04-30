@@ -40,7 +40,7 @@ export default function FormSelect() {
         setSizeError(false)
         setZipError(false)
 
-        //if the inpt is empty display error
+        //if the input is empty display error
         if (price == '') {
             setPriceError(true)
         }
