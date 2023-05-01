@@ -60,7 +60,7 @@ export default function FormSelect() {
 
     return (
 
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit} method="GET" action="/buyers" noValidate autoComplete="off">
             <TextField
                 onChange={(e) => setPrice(e.target.value)}
                 id="price"
