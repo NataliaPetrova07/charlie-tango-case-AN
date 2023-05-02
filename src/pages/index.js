@@ -5,12 +5,8 @@ import { estateTypes } from "@/data/estateTypes";
 import Form from "@/components/Forms/FormSelect";
 import FormSelect from "@/components/Forms/FormSelect";
 
-
-
-
 export default function Home() {
-
-  let estateType = estateTypes
+  let estateType = estateTypes;
 
   return (
     <>
@@ -44,8 +40,8 @@ export default function Home() {
           {/* action="/buyers" --> direct to the desired page. Careful with method! */}
           <form action="/buyers" method="GET" className={styles.form}>
             <label>
-              <span className={styles.label}>Zip Code</span>
-              <input name="zipCode" />
+              <span className={styles.label}>Price</span>
+              <input name="price" />
             </label>
             {/*  <button className={styles.button}>Submit</button> */}
           </form>
@@ -83,9 +79,8 @@ export default function Home() {
           <h2>Find a buyer for you property - Material UI</h2>
           <FormSelect />
         </div>
-      </div >
+      </div>
     </>
   );
 }
-"zip"
-
+("zip");

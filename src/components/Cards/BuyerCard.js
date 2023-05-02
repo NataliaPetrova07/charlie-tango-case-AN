@@ -3,6 +3,11 @@ import icon from "@/assets/icon-input-close.svg";
 import Image from "next/image";
 
 export default function BuyerCard(props) {
+  const priceFormatter = new Intl.NumberFormat("da-DK", {
+    currency: "DKK",
+    style: "currency",
+    maximumFractionDigits: 0,
+  });
   return (
     <article className={styles.card}>
       <ul>
@@ -10,7 +15,7 @@ export default function BuyerCard(props) {
           <strong>Buyer ID:</strong> {props.id}
         </li>
         <li>
-          <strong>Max price:</strong> {props.maxPrice} DKK
+          <strong>Max price:</strong> {priceFormatter.format(props.maxPrice)}
         </li>
         <li>
           <strong>Min size:</strong> {props.minSize} m2
