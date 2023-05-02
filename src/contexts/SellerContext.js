@@ -4,7 +4,7 @@ export const SellerContext = createContext();
 export const DispatchContext = createContext();
 
 const initialState = {
-    //change tis code with the form fields and id from the fakebuyers
+    //change tis code with the form fields/seller info and id from the fakebuyers
     basket: []
 };
 function reducer(state, action) {

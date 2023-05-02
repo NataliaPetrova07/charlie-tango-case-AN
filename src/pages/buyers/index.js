@@ -57,9 +57,11 @@ export default function Buyers(props) {
   );
 }
 
+/* http://localhost:3000/buyers?size=2300  */
+
 export async function getServerSideProps() {
   // const buyer = context.params.buyer;
-  const api = "http://localhost:3000/api/find-buyers";
+  const api = "http://localhost:3000/api/find-buyers?price=1000000";
   const res = await fetch(api);
   // If no data - no page (404)
   if (res.status != 200) {

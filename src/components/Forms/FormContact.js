@@ -32,6 +32,7 @@ export default function FormContact(props) {
 
     //Handle database
     const formEl = useRef(null)
+
     //Getting the stored data
     /*   const state = useContext(DispatchContext);
       const { buyer } = state; */
@@ -138,7 +139,7 @@ export default function FormContact(props) {
 
             <Button
                 variant="contained"
-                //Thi line below is to push to stpre the data
+                //Thi line below is to push to store the data
                 /* onClick={addToInfo} */
                 type="submit"
             >

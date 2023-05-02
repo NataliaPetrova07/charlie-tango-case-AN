@@ -13,7 +13,8 @@ export default function Home() {
             </Head>
             <div className="wrapper">
                 <h2>Test</h2>
-                {/*  <Test></Test> */}
+                {/* Componet to test if useContext and useReduce worked - not essential */}
+                {/* <Test></Test> */}
             </div >
             <div className="wrapper">
                 <h1 className={styles.headline}>Contact the potential buyers</h1>

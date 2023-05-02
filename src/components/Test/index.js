@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { SellerContext, UpdateContext } from "@/contexts/SellerContext";
+import { SellerContext, DispatchContext } from "@/contexts/SellerContext";
 
 function Test() {
     const sellerInfo = useContext(SellerContext);
-    const dispatch = useContext(UpdateContext);
+    const dispatch = useContext(DispatchContext);
 
     function handleLogin() {
         dispatch({
@@ -15,7 +15,7 @@ function Test() {
     console.log(sellerInfo)
     return (
         <div>
-            <span>Price: {sellerInfo.price}</span>
+            <span>Price: 230</span>
         </div>
     );
 }
