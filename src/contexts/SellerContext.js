@@ -30,6 +30,15 @@ function reducer(state, action) {
 
 };
 
+/* 
+case "mobile":
+    state.mobile.value = payload.newValue;
+    state.mobile.error = payload.error;
+    return;
+  case "email":
+    state.email.value = payload.newValue;
+    state.email.error = payload.error;
+    return; */
 
 export const SellerProvider = ({ children }) => {
     //useReducer it is just a useState that returns a state and an update method

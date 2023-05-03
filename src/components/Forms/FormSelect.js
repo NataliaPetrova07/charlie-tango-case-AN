@@ -17,25 +17,23 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { DispatchContext } from "@/contexts/SellerContext";
 
-export default function FormSelect(props) {
+export default function FormSelect() {
 
     //We need  to update the data 
-    const dispatch = useContext(DispatchContext);
-
-    function addToInfo() {
-        dispatch({
-            action: "ADD_INFO",
-            payload: {
-                name: props.name,
-                email: props.email,
-                phone: props.phone
-            },
-        });
-    }
-
-    //Getting the stored data
     /* const dispatch = useContext(DispatchContext); */
+    /* 
+        function addToInfo() {
+            dispatch({
+                action: "ADD_INFO",
+                payload: {
+                    name: props.name,
+                    email: props.email,
+                    phone: props.phone
+                },
+            });
+        } */
 
+    /* const dispatch = useContext(DispatchContext); */
 
     /*  setPrice;
            setSize;
@@ -67,7 +65,7 @@ export default function FormSelect(props) {
     const [zipError, setZipError] = useState(false);
 
     //to direct to buyers list after the validation
-    const router = useRouter();
+    /*  const router = useRouter(); */
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -95,7 +93,7 @@ export default function FormSelect(props) {
 
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit} method="GET" action="/buyers" noValidate autoComplete="off">
+        <form className={styles.form} onSubmit={handleSubmit} method="GET" /* action="/buyers" */ noValidate autoComplete="off">
             <TextField
                 onChange={(e) => setPrice(e.target.value)}
                 id="price"
@@ -158,8 +156,8 @@ export default function FormSelect(props) {
             <Button
                 variant="contained"
                 type="submit"
-                //Thi line below is to push to store the data
-                onClick={addToInfo}
+            //Thi line below is to push to store the data
+            /* onClick={addToInfo} */
             >
                 Submit
             </Button>
