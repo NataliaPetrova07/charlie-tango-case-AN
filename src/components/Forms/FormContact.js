@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import { useRouter } from "next/router";
 
 import { useContext } from "react";
-import { SellerContext, DispatchContext } from "@/contexts/SellerContext";
+import { SellerContext } from "@/contexts/SellerContext";
 
 
 export default function FormContact(props) {
@@ -29,7 +29,8 @@ export default function FormContact(props) {
               },
           });
       } */
-
+    const allInfo = useContext(SellerContext);
+    console.log(initialState)
     //Handle database
     const formEl = useRef(null)
 
@@ -42,13 +43,11 @@ export default function FormContact(props) {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-
     const [nameError, setNameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
     //to send to success page  
     const router = useRouter();
-
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -67,7 +66,6 @@ export default function FormContact(props) {
         if (phone == '') {
             setPhoneError(true)
         }
-
         //if all the fields, on submit send to buyers page
         if (name && email && phone) {
             //change route to the success page (still needs to be created)
@@ -93,7 +91,6 @@ export default function FormContact(props) {
 
 
     return (
-
         <form className={styles.form} onSubmit={handleSubmit} noValidate autoComplete="off" ref={formEl}>
             <TextField
                 onChange={(e) => setName(e.target.value)}
@@ -135,8 +132,6 @@ export default function FormContact(props) {
             <FormControlLabel
                 control={<Checkbox />} label="Yes please, EDC may contact me with ofers and information related to the real estate market"
             />
-
-
             <Button
                 variant="contained"
                 //Thi line below is to push to store the data
@@ -145,8 +140,6 @@ export default function FormContact(props) {
             >
                 Contact Buyers
             </Button>
-
-
         </form>
     );
 }

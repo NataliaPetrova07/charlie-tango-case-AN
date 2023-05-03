@@ -14,27 +14,64 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function FormSelect() {
+import { useContext } from "react";
+import { DispatchContext } from "@/contexts/SellerContext";
 
+export default function FormSelect(props) {
+
+    //We need  to update the data 
+    const dispatch = useContext(DispatchContext);
+
+    function addToInfo() {
+        dispatch({
+            action: "ADD_INFO",
+            payload: {
+                name: props.name,
+                email: props.email,
+                phone: props.phone
+            },
+        });
+    }
+
+    //Getting the stored data
+    /* const dispatch = useContext(DispatchContext); */
+
+
+    /*  setPrice;
+           setSize;
+           setZip;
+           setType;
+           dispatch({
+               action: "ADD_INFO",
+               payload: {
+                   name: e.target.value,
+                   email: e.target.value,
+                   phone: e.target.value
+               },
+           }) */
+
+    //to get the different types of state - holds the value of the select field
     let estateType = estateTypes
+    const handleChange = (e) => {
+        setType(e.target.value);
+    };
 
-    const [price, setPrice] = useState("");
-    const [size, setSize] = useState("");
-    const [zip, setZip] = useState("");
-    const [type, setType] = useState("");
+    //validation with error message & holds the value of the input field
+    const [price, setPrice] = useState('');
+    const [size, setSize] = useState('');
+    const [zip, setZip] = useState('');
+    const [type, setType] = useState('');
 
     const [priceError, setPriceError] = useState(false);
     const [sizeError, setSizeError] = useState(false);
     const [zipError, setZipError] = useState(false);
 
+    //to direct to buyers list after the validation
     const router = useRouter();
-
-    const handleChange = (e) => {
-        setType(e.target.value);
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
         //set error state to falso so it won't display
         setPriceError(false)
         setSizeError(false)
@@ -50,16 +87,14 @@ export default function FormSelect() {
         if (zip == '') {
             setZipError(true)
         }
-
-        //if all the fields, on submit send to buyers page
+        //if all the fields are filled, on submit send to buyers page 
         if (price && size && zip && type) {
-            router.push('/buyers');
+            /*  router.push('/buyers'); */
         }
     }
 
 
     return (
-
         <form className={styles.form} onSubmit={handleSubmit} method="GET" action="/buyers" noValidate autoComplete="off">
             <TextField
                 onChange={(e) => setPrice(e.target.value)}
@@ -69,9 +104,10 @@ export default function FormSelect() {
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                size="small"
                 error={priceError}
                 //helper text to show when error fix this
-                helperText="Incorrect entry."
+                /*  helperText="Incorrect entry." */
                 required
             />
             <TextField
@@ -82,6 +118,7 @@ export default function FormSelect() {
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                size="small"
                 //The icon for square meters is not showing, why?
                 endAdornment={<InputAdornment position="end">kg</InputAdornment>}
                 error={sizeError}
@@ -95,13 +132,14 @@ export default function FormSelect() {
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                size="small"
                 error={zipError}
                 required
             />
-
             <FormControl
                 fullWidth
                 margin="normal"
+                size="small"
                 required>
                 <InputLabel id="type">Property Type</InputLabel>
                 <Select
@@ -120,6 +158,8 @@ export default function FormSelect() {
             <Button
                 variant="contained"
                 type="submit"
+                //Thi line below is to push to store the data
+                onClick={addToInfo}
             >
                 Submit
             </Button>
