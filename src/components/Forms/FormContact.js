@@ -17,8 +17,8 @@ export default function FormContact() {
     //Handle database
     const formEl = useRef(null)
     //Accessing the stored data
-    /*  const data = useContext(SellerContext);
-     const { info } = data */
+    /* const data = useContext(SellerContext);
+    const { info } = data */
 
     //Validation with error message
     const [name, setName] = useState("");
@@ -59,7 +59,7 @@ export default function FormContact() {
                 name: name,
                 email: email,
                 phone: phone,
-                /* info: info, */
+                /*  info: info, */
             }
             fetch("/api/add-info", {
                 method: "POST",
