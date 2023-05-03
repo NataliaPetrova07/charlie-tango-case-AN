@@ -20,39 +20,12 @@ import { DispatchContext } from "@/contexts/SellerContext";
 export default function FormSelect() {
 
     //We need  to update the data 
-    /* const dispatch = useContext(DispatchContext); */
-    /* 
-        function addToInfo() {
-            dispatch({
-                action: "ADD_INFO",
-                payload: {
-                    name: props.name,
-                    email: props.email,
-                    phone: props.phone
-                },
-            });
-        } */
+    const dispatch = useContext(DispatchContext);
 
-    /* const dispatch = useContext(DispatchContext); */
 
-    /*  setPrice;
-           setSize;
-           setZip;
-           setType;
-           dispatch({
-               action: "ADD_INFO",
-               payload: {
-                   name: e.target.value,
-                   email: e.target.value,
-                   phone: e.target.value
-               },
-           }) */
 
     //to get the different types of state - holds the value of the select field
     let estateType = estateTypes
-    const handleChange = (e) => {
-        setType(e.target.value);
-    };
 
     //validation with error message & holds the value of the input field
     const [price, setPrice] = useState('');
@@ -65,7 +38,7 @@ export default function FormSelect() {
     const [zipError, setZipError] = useState(false);
 
     //to direct to buyers list after the validation
-    /*  const router = useRouter(); */
+    const router = useRouter();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -87,10 +60,19 @@ export default function FormSelect() {
         }
         //if all the fields are filled, on submit send to buyers page 
         if (price && size && zip && type) {
-            /*  router.push('/buyers'); */
+            router.push('/buyers');
+            dispatch({
+                action: "ADD_INFO",
+                payload: {
+                    price: price,
+                    size: size,
+                    zip: zip,
+                    type: type,
+                },
+            });
+
         }
     }
-
 
     return (
         <form className={styles.form} onSubmit={handleSubmit} method="GET" /* action="/buyers" */ noValidate autoComplete="off">
@@ -145,7 +127,7 @@ export default function FormSelect() {
                     id="type"
                     value={type}
                     label="Property Type"
-                    onChange={handleChange}
+                    onChange={(e) => setType(e.target.value)}
                 >
                     {estateType.map((estate) => (
                         <MenuItem value={estate.id} key={estate.id} >{estate.name}</MenuItem>

@@ -10,34 +10,10 @@ import {
 import { useRef, useState } from "react";
 import { useRouter } from "next/router";
 
-import { useContext } from "react";
-import { SellerContext } from "@/contexts/SellerContext";
-
-
 export default function FormContact(props) {
-    //We need to get all the previous data but do we need to update the data too or it goes straight to the database if we are on this page?
-    /*   const allInfo = useContext(SellerContext);
-      const dispatch = useContext(DispatchContext);
-  
-      function addToInfo() {
-          dispatch({
-              action: "ADD_INFO",
-              payload: {
-                  name: props.name,
-                  email: props.email,
-                  phone: props.phone
-              },
-          });
-      } */
-    const allInfo = useContext(SellerContext);
-    console.log(initialState)
+
     //Handle database
     const formEl = useRef(null)
-
-    //Getting the stored data
-    /*   const state = useContext(DispatchContext);
-      const { buyer } = state; */
-
     //Validation with error message
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

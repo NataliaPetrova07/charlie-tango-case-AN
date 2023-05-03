@@ -23,8 +23,6 @@ function reducer(state, action) {
         case "ADD_INFO":
             console.log(state, action)
             return {
-
-
             };
     }
 
