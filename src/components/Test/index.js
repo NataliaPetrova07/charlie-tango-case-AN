@@ -1,22 +1,21 @@
 import { useContext } from "react";
-import { SellerContext, DispatchContext } from "@/contexts/SellerContext";
+import { SellerContext } from "@/contexts/SellerContext";
 
-function Test() {
-    const sellerInfo = useContext(SellerContext);
-    const dispatch = useContext(DispatchContext);
+export default function Test() {
+    const data = useContext(SellerContext);
+    console.log(data.info)
+    const { info } = data
 
-    function handleLogin() {
-        dispatch({
-            action: "LOGIN",
-            payload: "Bo",
-        })
-    }
 
-    console.log(sellerInfo)
+
     return (
         <div>
-            <span>Price: 230</span>
+            <span>Price:{info.price}</span>
+
+            {/* This shit down here for mapping is not working */}
+            {/*  <ul>
+                {info.map((info) => <li key={info.id}>{info.price}</li>)}
+            </ul> */}
         </div>
     );
 }
-export default Test;

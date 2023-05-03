@@ -6,8 +6,8 @@ export const DispatchContext = createContext();
 const initialState = {
     //change tis code with the form fields/seller info and id from the fakebuyers
     //buyer selection
-    price: 0,
-    size: '',
+    /* price: 0,
+    size: '1234',
     zip: '',
     type: '',
     id: '',
@@ -15,7 +15,8 @@ const initialState = {
     email: '',
     phone: '',
     //add a field for address? - consetn is a boolean
-    consent: false,
+    consent: false, */
+    info: [],
 };
 
 function reducer(state, action) {
@@ -23,6 +24,7 @@ function reducer(state, action) {
         case "ADD_INFO":
             console.log(state, action)
             return {
+                ...state, info: action.payload
             };
     }
 

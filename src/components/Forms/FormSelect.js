@@ -60,7 +60,7 @@ export default function FormSelect() {
         }
         //if all the fields are filled, on submit send to buyers page 
         if (price && size && zip && type) {
-            router.push('/buyers');
+            router.push('/contact');
             dispatch({
                 action: "ADD_INFO",
                 payload: {

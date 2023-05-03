@@ -1,4 +1,6 @@
 import styles from "../../pages/Home.module.css";
+import { useContext } from "react";
+import { SellerContext } from "@/contexts/SellerContext";
 
 import {
     TextField,
@@ -10,10 +12,14 @@ import {
 import { useRef, useState } from "react";
 import { useRouter } from "next/router";
 
-export default function FormContact(props) {
+export default function FormContact() {
 
     //Handle database
     const formEl = useRef(null)
+    //Accessing the stored data
+    /*  const data = useContext(SellerContext);
+     const { info } = data */
+
     //Validation with error message
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -22,8 +28,9 @@ export default function FormContact(props) {
     const [nameError, setNameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
+
     //to send to success page  
-    const router = useRouter();
+    /* const router = useRouter(); */
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -47,11 +54,12 @@ export default function FormContact(props) {
             //change route to the success page (still needs to be created)
             /*  router.push('/buyers'); */
 
-            //Sedn to database
+            //Send to database
             const payload = {
-                name: "",
-                email: "",
-                phone: ""
+                name: name,
+                email: email,
+                phone: phone,
+                /* info: info, */
             }
             fetch("/api/add-info", {
                 method: "POST",
@@ -110,8 +118,6 @@ export default function FormContact(props) {
             />
             <Button
                 variant="contained"
-                //Thi line below is to push to store the data
-                /* onClick={addToInfo} */
                 type="submit"
             >
                 Contact Buyers
