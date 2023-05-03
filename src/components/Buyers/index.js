@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SellerContext } from "@/contexts/SellerContext";
 
-export default function Test() {
+export default function Buyers() {
     const data = useContext(SellerContext);
     console.log(data.info)
     const { info } = data
@@ -10,7 +10,7 @@ export default function Test() {
 
     return (
         <div>
-            <span>Price:{info.price}</span>
+            <p>ID:{info.price}</p>
 
             {/* This shit down here for mapping is not working */}
             {/*  <ul>

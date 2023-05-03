@@ -138,8 +138,6 @@ export default function FormSelect() {
             <Button
                 variant="contained"
                 type="submit"
-            //Thi line below is to push to store the data
-            /* onClick={addToInfo} */
             >
                 Submit
             </Button>

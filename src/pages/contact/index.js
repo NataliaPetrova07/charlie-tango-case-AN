@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../Home.module.css";
 
 import FormContact from "@/components/Forms/FormContact";
-import Test from "@/components/Test";
+import Buyers from "@/components/Buyers";
 
 export default function Home() {
 
@@ -15,11 +15,10 @@ export default function Home() {
             <div className="wrapper">
                 <h1>Contact the potential buyers</h1>
                 <div className={styles.content} >
-                    <h2>Test</h2>
-                    <Test></Test>
+                    <h2>Desired buyers</h2>
+                    <Buyers />
                 </div >
                 <div className={styles.content}>
-                    <h2>Missing the choosen buyers displayed</h2>
                     <FormContact />
                 </div>
             </div >
