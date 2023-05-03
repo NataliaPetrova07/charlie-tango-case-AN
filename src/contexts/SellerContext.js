@@ -4,27 +4,26 @@ export const SellerContext = createContext();
 export const DispatchContext = createContext();
 
 const initialState = {
-    //change tis code with the form fields/seller info and id from the fakebuyers
-    basket: []
+  //change tis code with the form fields/seller info and id from the fakebuyers
+
+  price: 900000,
 };
 function reducer(state, action) {
-    switch (action.action) {
-        case "ADD_INFO":
-            console.log(state, action)
-            return [];
-    }
-
-};
-
+  switch (action.action) {
+    case "ADD_INFO":
+      console.log(state, action);
+      return [];
+  }
+}
 
 export const SellerProvider = ({ children }) => {
-    //useReducer it is just a useState that returns a state and an update method
-    const [data, dispatch] = useReducer(reducer, initialState);
-    return (
-        <SellerContext.Provider value={data}>
-            <DispatchContext.Provider value={dispatch}>
-                {children}
-            </DispatchContext.Provider>
-        </SellerContext.Provider>
-    );
+  //useReducer it is just a useState that returns a state and an update method
+  const [data, dispatch] = useReducer(reducer, initialState);
+  return (
+    <SellerContext.Provider value={data}>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
+    </SellerContext.Provider>
+  );
 };

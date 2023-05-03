@@ -2,6 +2,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import BuyerCard from "@/components/Cards/BuyerCard";
+import { SellerContext } from "@/contexts/SellerContext";
+import { useContext } from "react";
 
 export default function Buyers(props) {
   const { query } = useRouter();
@@ -59,9 +61,12 @@ export default function Buyers(props) {
 
 /* http://localhost:3000/buyers?size=2300  */
 
+//   const api = "http://localhost:3000/api/find-buyers?price=${mySeller.price}&size=${mySeller.size}&zipCode=${mySeller.zipCode}";
+
 export async function getServerSideProps() {
+  const mySeller = useContext(SellerContext);
   // const buyer = context.params.buyer;
-  const api = "http://localhost:3000/api/find-buyers?price=1000000";
+  const api = "http://localhost:3000/api/find-buyers?price=" + mySeller.price;
   const res = await fetch(api);
   // If no data - no page (404)
   if (res.status != 200) {

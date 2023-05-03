@@ -14,7 +14,7 @@ export default function handler(req, res) {
   const price = parseInt(req.query.price || "3000000");
   const profilesForZipCode = generateBuyerProfiles({
     zipCode,
-    price
+    price,
   });
 
   // Set the cache headers, so that the response can be cached
